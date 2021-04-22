@@ -1,0 +1,12 @@
+printf "Choose a number between 5-12: "
+read choosen_number
+
+while [[ $choosen_number != +([0-9]) ]] || (( choosen_number < 5 || choosen_number > 12 )) ; 
+do  
+
+    printf " Choosen number isn't between 5-12.Type another number:\n"
+    
+    read choosen_number
+done
+
+printf "Well done!\n"

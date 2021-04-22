@@ -1,0 +1,35 @@
+#!/bin/sh
+
+. /etc/init.d
+
+
+
+
+[ -f /usr/local/sbin/task.sh ] || exit 0
+
+case "$1" in
+
+        start)
+                echo "Code started...."
+                /usr/local/sbin/task.sh &
+                echo "======================"
+                touch /var/lock/subsys/task
+                ;;
+        stop)
+                echo -n "stopping"
+                killall -q -9 task.sh &
+                rm -f /var/lock/subsys/task
+                ;;
+        status)
+                status task
+                ;;
+        restart|reload)
+                $0 stop
+                $0 start
+                ;;
+        *)
+                echo "start, stop, restart|reload, status"
+                exit 1
+esac
+
+exit 0
