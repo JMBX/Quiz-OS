@@ -1,0 +1,4 @@
+#!/bin/sh
+
+/home/jmbx/Documents/quiz/choosen_number.sh
+/home/jmbx/Documents/quiz/FileList.sh
